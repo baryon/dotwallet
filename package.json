@@ -1,0 +1,25 @@
+{
+  "author": {
+    "name": "Li Long",
+    "email": "lilong@chainbow.com"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "md5": "^2.2.1"
+  },
+  "description": "A DotWallet helper library",
+  "devDependencies": {
+    "uuid": "^7.0.3"
+  },
+  "keywords": [
+    "dotwallet",
+    "openplatform",
+    "rest",
+    "api"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "dotwallet",
+  "scripts": {},
+  "version": "0.1.0"
+}
