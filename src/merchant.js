@@ -5,7 +5,7 @@ const utils = require( "./utils" );
 const DomainOption = {
   "CN": "https://www.ddpurse.com",
   "HK": "https://overseas.ddpurse.com"
-}
+};
 
 class DWMerchant {
   constructor ( appID, secret, opts ) {
@@ -78,8 +78,8 @@ class DWMerchant {
       receive_address: JSON.stringify( receiveMuti ),
     };
     order.sign = utils.CreateSignature( order, this.m_secret );
-    const orderURL = new URL( "openapi/apply_order", DWMerchant.DotWalletOpenURL );
-    console.log(orderURL)
+    const orderURL = new URL( "openapi/order", DWMerchant.DotWalletOpenURL );
+    console.log( orderURL );
     return axios.post( orderURL.href, order, {
       timeout: this.m_timeout,
       headers: {
@@ -87,21 +87,12 @@ class DWMerchant {
       }
     } )
       .then( function ( res ) {
-        //console.log( res.status, res.headers, res.request.res.responseUrl );
-        const redirectURL = new URL( res.request.res.responseUrl );
-        let rst = {
-          code: 0,
-          msg: 'ok',
-          data: {
-            order_sn: redirectURL.searchParams.get( 'order_sn' )
-          }
-        };
-        return rst
-      } )
+        return res.data;
+      } );
   }
 }
 
 module.exports = {
   DomainOption: DomainOption,
   DWMerchant: DWMerchant
-}
+};
